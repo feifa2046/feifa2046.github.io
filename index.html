@@ -1,102 +1,401 @@
-<!DOCTYPE HTML>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-<head>
-	<title>Wang Yu Page</title>
-	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
-	<style type="text/css">
-		@font-face {
-			font-family: digit;
-			src: url('digital-7_mono.ttf') format("truetype");
-		}
-	</style>
-	<link href="css/default.css" type="text/css" rel="stylesheet">
-	<script type="text/javascript" src="js/jquery.js"></script>
-	<script type="text/javascript" src="js/garden.js"></script>
-    <script type="text/javascript" src="js/functions.js"></script>
-</head>
+<!doctype html>
+<html class="no-js">
 
-<body>
-	<div id="mainDiv">
-		<div id="content">
-			<div id="code">
-				<span class="comments">/**</span><br />
-				<span class="space"/><span class="comments">* 哈哈哈哈，臭粑粑,</span><br />
-				<span class="space"/><span class="comments">* 俺稀罕你！//下面代码没有改</span><br />
-				<span class="space"/><span class="comments">*/</span><br />
-				Boy i = <span class="keyword">new</span> Boy(<span class="string">"Wang Yu"</span>);<br />
-				Girl u = <span class="keyword">new</span> Girl(<span class="string">"Miao Yan Yun"</span>);<br />
-				<span class="comments">// Nov 10, 2009, I told you I love you. </span><br />
-				i.love(u);<br />
-				<span class="comments">// Luckily, you accepted and became my girlfriend eversince.</span><br />
-				u.accepted();<br />
-				<span class="comments">// Since then, I miss u every day.</span><br />
-				i.miss(u);<br />
-				<span class="comments">// And take care of u and our love.</span><br />
-				i.takeCareOf(u);<br />
-				<span class="comments">// You say that you won't be so easy to marry me.</span><br />
-				<span class="comments">// So I keep waiting and I have confidence that you will.</span><br />
-				<span class="keyword">boolean</span> isHesitate = <span class="keyword">true</span>;<br />
-				<span class="keyword">while</span> (isHesitate) {<br />
-				<span class="placeholder"/>i.waitFor(u);<br />
-				<span class="placeholder"/><span class="comments">// I think it is an important decision</span><br />
-				<span class="placeholder"/><span class="comments">// and you should think it over.</span><br />
-				<span class="placeholder"/>isHesitate = u.thinkOver();<br />
-				}<br />
-				<span class="comments">// After a romantic wedding, we will live happily ever after.</span><br />
-				i.marry(u);<br />
-				i.liveHappilyWith(u);<br />
-			</div>
-			<div id="loveHeart">
-				<canvas id="garden"></canvas>
-				<div id="words">
-					<div id="messages">
-						Miao Yan Yun, I have fallen in love with you for
-						<div id="elapseClock"></div>
-					</div>
-					<div id="loveu">
-						Love u forever and ever.<br/>
-						<div class="signature">- Wang Yu</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div id="copyright">
-			Inspired by <a href="http://www.openrise.com/lab/FlowerPower/">FlowerPower</a> project.<br />
-			Copyright © 2011 <a href='http://hackerzhou.me'>hackerzhou.me</a> 2009-2011
-		</div>
-	</div>
-	<script type="text/javascript">
-		var offsetX = $("#loveHeart").width() / 2;
-		var offsetY = $("#loveHeart").height() / 2 - 55;
-		var together = new Date();
-		together.setFullYear(2009, 5, 10);
-		together.setHours(20);
-		together.setMinutes(0);
-		together.setSeconds(0);
-		together.setMilliseconds(0);
+	<head>
+		<meta charset="utf-8"/>
+		<title>SIMPLER</title>
 		
-		if (!document.createElement('canvas').getContext) {
-			var msg = document.createElement("div");
-			msg.id = "errorMsg";
-			msg.innerHTML = "Your browser doesn't support HTML5!<br/>Recommend use Chrome 14+/IE 9+/Firefox 7+/Safari 4+"; 
-			document.body.appendChild(msg);
-			$("#code").css("display", "none")
-			$("#copyright").css("position", "absolute");
-			$("#copyright").css("bottom", "10px");
-		    document.execCommand("stop");
-		} else {
-			setTimeout(function () {
-				startHeartAnimation();
-			}, 5000);
+		<!--[if lt IE 9]>
+			<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		<link rel="stylesheet" media="all" href="css/style.css"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		
+		
+		<!-- JS -->
+		<script src="js/jquery-1.6.4.min.js"></script>
+		<script src="js/css3-mediaqueries.js"></script>
+		<script src="js/custom.js"></script>
+		<script src="js/tabs.js"></script>
+		
+		<!-- Tweet -->
+		<link rel="stylesheet" href="css/jquery.tweet.css" media="all"  /> 
+		<script src="js/tweet/jquery.tweet.js" ></script> 
+		<!-- ENDS Tweet -->
+		
+		<!-- superfish -->
+		<link rel="stylesheet" media="screen" href="css/superfish.css" /> 
+		<script  src="js/superfish-1.4.8/js/hoverIntent.js"></script>
+		<script  src="js/superfish-1.4.8/js/superfish.js"></script>
+		<script  src="js/superfish-1.4.8/js/supersubs.js"></script>
+		<!-- ENDS superfish -->
+		
+		<!-- prettyPhoto -->
+		<script  src="js/prettyPhoto/js/jquery.prettyPhoto.js"></script>
+		<link rel="stylesheet" href="js/prettyPhoto/css/prettyPhoto.css"  media="screen" />
+		<!-- ENDS prettyPhoto -->
+		
+		<!-- poshytip -->
+		<link rel="stylesheet" href="js/poshytip-1.1/src/tip-twitter/tip-twitter.css"  />
+		<link rel="stylesheet" href="js/poshytip-1.1/src/tip-yellowsimple/tip-yellowsimple.css"  />
+		<script  src="js/poshytip-1.1/src/jquery.poshytip.min.js"></script>
+		<!-- ENDS poshytip -->
+		
+		<!-- GOOGLE FONTS -->
+		
+		
+		<!-- Flex Slider -->
+		<link rel="stylesheet" href="css/flexslider.css" >
+		<script src="js/jquery.flexslider-min.js"></script>
+		<!-- ENDS Flex Slider -->
+		
+		<!-- Masonry -->
+		<script src="js/masonry.min.js" ></script>
+		<script src="js/imagesloaded.js" ></script>
+		<!-- ENDS Masonry -->
+		
+		<!-- Less framework -->
+		<link rel="stylesheet" media="all" href="css/lessframework.css"/>
+		
+		<!-- modernizr -->
+		<script src="js/modernizr.js"></script>
+		
+		<!-- SKIN -->
+		<link rel="stylesheet" media="all" href="css/skin.css"/>
+		
 
-			timeElapse(together);
-			setInterval(function () {
-				timeElapse(together);
-			}, 500);
+	</head>
+	
+	<body lang="en">
+	
+		<header>
+			<div class="wrapper clearfix">
+				
+				<div id="logo">
+					<a href="index.html"><img  src="img/logo.png" alt="Simpler"></a>
+				</div>
+				
+				<!-- nav -->
+				<ul id="nav" class="sf-menu">
+					<li class="current-menu-item"><a href="index.html">HOME</a></li>
+					<li><a href="blog.html">BLOG</a></li>
+					<li><a href="page.html">ABOUT</a>
+						<ul>
+							<li><a href="page-elements.html">Elements</a></li>
+							<li><a href="page-icons.html">Icons</a></li>
+							<li><a href="page-typography.html">Typography</a></li>
+						</ul>
+					</li>
+					<li><a href="portfolio.html">WORK</a></li>
+					<li><a href="contact.html">CONTACT</a></li>
+					<li><a href="#/blog/downloads/simpler-template">DOWNLOAD NOW</a></li>
+				</ul>
+				<!-- ends nav -->
+				
+				
+				<!-- comboNav -->
+				<select id="comboNav">
+					<option value="index.html" selected="selected">HOME</option>
+					<option value="blog.html">BLOG</option>
+					<option value="page.html">ABOUT</option>
+					<option value="page-elements.html">- Elements -</option>
+					<option value="page-icons.html">- Icons -</option>
+					<option value="page-typography.html">- Typography -</option>
+					<option value="portfolio.html">WORK</option>
+					<option value="#/blog/downloads/simpler-template">DOWNLOAD NOW</option>
+				</select>
+				<!-- comboNav -->
+				
+				<!-- slider holder -->
+				<div class="clearfix"></div>
+				<div id="slider-holder" class="clearfix">
+					
+					<!-- slider -->
+			        <div class="flexslider home-slider">
+					  <ul class="slides">
+					    <li>
+					      <img src="img/slides/01.jpg" alt="alt text" />
+					    </li>
+					    <li>
+					      <img src="img/slides/02.jpg" alt="alt text" />
+					      <p class="flex-caption">Pellentesque habitant morbi  feugiat vitae.</p>
+					    </li>
+					    <li>
+					      <img src="img/slides/03.jpg" alt="alt text" />
+					    </li>
+					  </ul>
+					</div>
+		        	<!-- ENDS slider -->
+		        	
+		        	<div class="home-slider-clearfix "></div>
+		        	
+		        	<!-- Headline -->
+		        	<div id="headline">
+		        		<h4>一切皆为虚幻</h4>
+		        		<p class="headline-text">所有相皆是虚妄；一切有为法如梦幻泡影，如露亦如电，当作如是观</p> 
+		        		<p class="headline-text"> 人生如梦随风散！聚散，喜忧皆是缘！</p>
+		        		
+		        	</div>
+		        	<!-- ENDS headline -->
+		        	
+		        	
+				</div>
+				<!-- ENDS slider holder -->
+				
+			</div>
+		</header>
+		
+		
+        
+		<!-- MAIN -->
+		<div id="main">	
+			<div class="wrapper clearfix">
+				
+				
+        		<!-- home-block -->
+	        	<div class="home-block clearfix" >
+	        		<h1 class="home-headline">FEATURED WORK </h1>
+	        		
+	        		<!-- thumbs -->
+	        		<div class="clearfix" >
+	        			
+	        			<figure>
+			        		<a href="single.html"  class="thumb"><img src="img/dummies/featured-1.jpg" alt="Alt text" /></a>
+			        		<figcaption>
+	        					<strong>Pellentesque habitant morbi</strong>
+	        					<span>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae.</span>
+			        		</figcaption>
+		        		</figure>
+		        		
+		        		<figure>
+			        		<a href="single.html"  class="thumb"><img src="img/dummies/featured-2.jpg" alt="Alt text" /></a>
+			        		<figcaption>
+	        					<strong>Pellentesque habitant morbi</strong>
+	        					<span>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae.</span>
+			        		</figcaption>
+		        		</figure>
+		        		
+		        		<figure>
+			        		<a href="single.html"  class="thumb"><img src="img/dummies/featured-3.jpg" alt="Alt text" /></a>
+			        		<figcaption>
+	        					<strong>Pellentesque habitant morbi</strong>
+	        					<span>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae.</span>
+			        		</figcaption>
+		        		</figure>
+		        		
+		        		<figure>
+			        		<a href="single.html"  class="thumb"><img src="img/dummies/featured-1.jpg" alt="Alt text" /></a>
+			        		<figcaption>
+	        					<strong>Pellentesque habitant morbi</strong>
+	        					<span>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae.</span>
+			        		</figcaption>
+		        		</figure>
+		        		
+		        		<figure>
+			        		<a href="single.html"  class="thumb"><img src="img/dummies/featured-3.jpg" alt="Alt text" /></a>
+			        		<figcaption>
+	        					<strong>Pellentesque habitant morbi</strong>
+	        					<span>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae.</span>
+			        		</figcaption>
+		        		</figure>
+		        		
+		        		<figure>
+			        		<a href="single.html"  class="thumb"><img src="img/dummies/featured-2.jpg" alt="Alt text" /></a>
+			        		<figcaption>
+	        					<strong>Pellentesque habitant morbi</strong>
+	        					<span>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae.</span>
+			        		</figcaption>
+		        		</figure>
+		        		
+	        		</div>
+	        		<!-- ENDS thumbs -->
+	        		
+	        		<a href="work.html" class="theme-link-button">See All Work</a>
+	        		
+	        	</div>
+	        	<!-- ENDS home-block -->
+	        	
+	        	
+	        	<!-- additional blocks -->
+	        	<div class="home-add clearfix">
+	        		
+	        		<!-- left -->
+	        		<div class="left-home-block home-posts">
+	        			<h4 class="heading">FROM THE BLOG</h4>
+	        			<article class="format-standard">
+							<div class="entry-date"><div class="number">23</div><div class="month">JAN</div> <div class="year">2015</div><em></em></div>
+							<div  class="post-heading">
+								<h4><a href="single.html">Lorem ipsum dolor </a></h4>
+							</div>
+							<div class="excerpt">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae.
+							</div>
+						</article>
+						
+						<article class="format-standard">
+							<div class="entry-date"><div class="number">23</div><div class="month">JAN</div> <div class="year">2015</div><em></em></div>
+							<div  class="post-heading">
+								<h4><a href="single.html">Lorem ipsum dolor </a></h4>
+							</div>
+							<div class="excerpt">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae.
+							</div>
+						</article>
+						
+						<article class="format-standard">
+							<div class="entry-date"><div class="number">23</div><div class="month">JAN</div> <div class="year">2015</div><em></em></div>
+							<div  class="post-heading">
+								<h4><a href="single.html">Lorem ipsum dolor </a></h4>
+							</div>
+							<div class="excerpt">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae.
+							</div>
+						</article>
+						
+						<article class="format-standard">
+							<div class="entry-date"><div class="number">23</div><div class="month">JAN</div> <div class="year">2015</div><em></em></div>
+							<div  class="post-heading">
+								<h4><a href="single.html">Lorem ipsum dolor </a></h4>
+							</div>
+							<div class="excerpt">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae.
+							</div>
+						</article>
+						
+						
+	        		</div>
+	        		<!-- ENDS left -->
+	        		
+	        		<!-- right -->
+	        		<div class="right-home-block">
+	        			
+	        			
+	        			<h4 class="heading">CLIENTS</h4>
+	        			
+	        			<!-- logos -->
+	        			<ul class="clients-logos clearfix">
+	        				<li><a href="#"><img src="img/dummies/logo1.png" alt="logo" /></a></li>
+	        				<li><a href="#"><img src="img/dummies/logo2.png" alt="logo" /></a></li>
+	        				<li><a href="#"><img src="img/dummies/logo3.png" alt="logo" /></a></li>
+	        				<li><a href="#"><img src="img/dummies/logo4.png" alt="logo" /></a></li>
+	        				<li><a href="#"><img src="img/dummies/logo5.png" alt="logo" /></a></li>
+	        				<li><a href="#"><img src="img/dummies/logo6.png" alt="logo" /></a></li>
+	        			</ul>
+	        			<!-- ENDS logos -->
+	        			
+	        			
+	        			<h4 class="heading">TESTIMONIALS</h4>
+	        			
+	        			<!-- testimonial slider -->
+				        <div class="flexslider testimonial-slider">
+						  <ul class="slides">
+						    <li>
+						      Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget.
+						      <div class="client-name">- Luis Zuno, Webdesigner</div>
+						    </li>
+							<li>
+						      at vitae, ultricies eget, tempor sit amet, ante. Donec 
+						      <div class="client-name">- Luis Zuno, Webdesigner</div>
+						    </li>
+						    
+						   <li>
+						     Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi.
+						     <div class="client-name">- Luis Zuno, Webdesigner</div>
+						    </li>
+						  </ul>
+						  
+						</div>
+			        	<!-- ENDS testimonial slider -->
+		        	
+		        		
+	        		</div>
+	        		<!-- ENDS right -->
+	        		
+	        	</div>
+        		<!-- ENDS additional blocks -->
 
-			adjustCodePosition();
-			$("#code").typewriter();
-		}
-	</script>
+			<!-- Fold image -->
+			<div id="fold"></div>
+			</div>
+			
+		</div>
+		<!-- ENDS MAIN -->
+		
+		
+		<footer>	
+			
+			<div class="wrapper clearfix">
+				
+				<!-- widgets -->
+				<ul  class="widget-cols clearfix">
+					<li class="first-col">
+						
+						<div class="widget-block">
+							<h4>RECENT POSTS</h4>
+							<div class="recent-post clearfix">
+								<a href="#" class="thumb"><img src="img/dummies/54x54.gif" alt="Post" /></a>
+								<div class="post-head">
+									<a href="#">Pellentesque habitant morbi senectus</a><span> March 12, 2015</span>
+								</div>
+							</div>
+							<div class="recent-post clearfix">
+								<a href="#" class="thumb"><img src="img/dummies/54x54.gif" alt="Post" /></a>
+								<div class="post-head">
+									<a href="#">Pellentesque habitant morbi senectus</a><span> March 12, 2015</span>
+								</div>
+							</div>
+							<div class="recent-post clearfix">
+								<a href="#" class="thumb"><img src="img/dummies/54x54.gif" alt="Post" /></a>
+								<div class="post-head">
+									<a href="#">Pellentesque habitant morbi senectus</a><span> March 12, 2015</span>
+								</div>
+							</div>
+						</div>
+					</li>
+					
+					<li class="second-col">
+						
+						<div class="widget-block">
+							<h4>FREE TEMPLATES &amp; THEMES</h4>
+							<p>Visit <a href="#/" >Template Creme</a> and browse the selection of well-made FREE Templates and WordPress Themes.</p>
+						</div>
+						
+					</li>
+					
+					<li class="third-col">
+						
+						<div class="widget-block">
+							<div class="footer-col">
+		         				<h4>TWITTER WIDGET</h4>
+		         			</div>
+		         		</div>
+		         		
+					</li>
+					
+					<li class="fourth-col">
+						
+						<div class="widget-block">
+							<h4>FREE TEMPLATES &amp; THEMES</h4>
+							<p>Visit <a href="#/" >Template Creme</a> and browse the selection of well-made FREE Templates and WordPress Themes.</p>
+						</div>
+		         		
+					</li>	
+				</ul>
+				<!-- ENDS widgets -->	
+				
+				
+				<!-- bottom -->
+				<div class="footer-bottom">
+					<div class="left">Copyright &copy; 2015.Company name All rights reserved.<a target="_blank" href="#">test</a></div>
+					<div class="right">
+						<ul id="social-bar">
+							<li><a href="#"  title="Become a fan" class="poshytip"><img src="img/social/facebook.png"  alt="Facebook" /></a></li>
+							<li><a href="#" title="Follow my tweets" class="poshytip"><img src="img/social/twitter.png"  alt="twitter" /></a></li>
+							<li><a href="#"  title="Add to the circle" class="poshytip"><img src="img/social/plus.png" alt="Google plus" /></a></li>
+						</ul>
+					</div>
+				</div>	
+				<!-- ENDS bottom -->		
+
+			</div>
+		</footer>
+		
+			
 </body>
 </html>
